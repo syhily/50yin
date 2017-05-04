@@ -8,6 +8,6 @@ Yet another hiragana & katakana online self test. Original worked by [egoist](ht
 
 - [x] Fullfill the whole 45 仮名 
 - [ ] Remove mustache template
-- [ ] Add gulp to get a happy frontend flow
+- [x] Add gulp to get a happy frontend flow
 - [ ] Generate test on a group of lines that selected by user
 - [ ] Reduce boilerplate code
