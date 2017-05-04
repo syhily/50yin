@@ -1,4 +1,13 @@
 # 日语五十音测试
 
-[我学会日语的时候这个项目就从 50yin.surge.sh 转移到 50.insekai.com QAQ](http://50yin.surge.sh)
+Yet another hiragana & katakana online self test. Original worked by [egoist](https://github.com/egoist/50yin)
 
+[Website](https://yufan.me/50yin)
+
+## TODO
+
+- [x] Fullfill the whole 45 仮名 
+- [ ] Remove mustache template
+- [ ] Add gulp to get a happy frontend flow
+- [ ] Generate test on a group of lines that selected by user
+- [ ] Reduce boilerplate code
