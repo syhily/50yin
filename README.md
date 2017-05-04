@@ -7,7 +7,7 @@ Yet another hiragana & katakana online self test. Original worked by [egoist](ht
 ## TODO
 
 - [x] Fullfill the whole 45 仮名 
-- [ ] Remove mustache template
+- [x] Remove mustache template
 - [x] Add gulp to get a happy frontend flow
 - [ ] Generate test on a group of lines that selected by user
-- [ ] Reduce boilerplate code
+- [x] Reduce boilerplate code
