@@ -27,18 +27,7 @@ var App = function() {
     shuffledRomaji: {}
   };
 
-  var answerSheet = {
-    correct: 0,
-    limit: 100,
-    current_count: 0,
-    errors: [],
-    timer: [],
-    now_timestamp: 0,
-    tings: [],
-    tings_limit: 50,
-    order: 0,
-    romas: []
-  };
+  var answerSheet = {};
 
   var output = $(".output");
 
