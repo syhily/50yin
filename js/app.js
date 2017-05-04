@@ -21,7 +21,7 @@ var App = function() {
       haline: ['ha', 'hi', 'fu', 'he', 'ho'],
       maline: ['ma', 'mi', 'mu', 'me', 'mo'],
       yaline: ['ya',　'i', 'yu', 'e', 'yo'],
-      raline: ['ra', 'ri', 'ru', 're', 'ru'],
+      raline: ['ra', 'ri', 'ru', 're', 'ro'],
       waline: ['wa', 'i', 'u', 'e', 'o']
     },
     shuffledRomaji: {}
@@ -106,7 +106,6 @@ var App = function() {
   var renderDictation = function() {
     var _renderDictation = function(_remain) {
       if (answerSheet.order >= ganakana.shuffledRomaji.length) {
-        cleanAnswerSheet();
         clockStop();
         alert("听写完毕");
         Q.go('home');
