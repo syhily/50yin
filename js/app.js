@@ -106,8 +106,9 @@ var App = function() {
   var renderDictation = function() {
     var _renderDictation = function(_remain) {
       if (answerSheet.order >= ganakana.shuffledRomaji.length) {
-        alert("听写完毕");
         cleanAnswerSheet();
+        clockStop();
+        alert("听写完毕");
         Q.go('home');
       } else {
         render("tingxie-tmpl", {
