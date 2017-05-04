@@ -8,19 +8,29 @@
 </head>
 <body>
 <h1 class="tc">
-  <a href="/" class="sitename">日语五十音测试</a>
+  <a href="#!home" class="sitename">日语五十音测试</a>
 </h1>
 <div class="output tc">
 loading...
 </div>
 <footer class="tc">
-  made by malachai
+  made by malachai, recode by syhily
 </footer>
 <script id="choose-template" type="x-tmpl-mustache">
-  <h2>选择范围</h2>
+  <h2>选择</h2>
   <a class="clickable line" id="aline" href="#!c/aline">あ行</a>
   <a class="clickable line" id="kaline" href="#!c/kaline">か行</a>
   <a class="clickable line" id="saline" href="#!c/saline">さ行</a>
+  <a class="clickable line" id="taline" href="#!c/taline">た行</a>
+  <a class="clickable line" id="naline" href="#!c/naline">な行</a>
+  <a class="clickable line" id="haline" href="#!c/haline">は行</a>
+  <a class="clickable line" id="maline" href="#!c/maline">ま行</a>
+  <a class="clickable line" id="yaline" href="#!c/yaline">や行</a>
+  <a class="clickable line" id="raline" href="#!c/raline">ら行</a>
+  <a class="clickable line" id="waline" href="#!c/waline">わ行</a>
+  <a class="clickable line" href="#!g/easy">组合</a>
+  <h2>听写</h2>
+  <a class="clickable line" id="aline" href="#!t/all">全部</a>
 </script>
 
 <script id="aline-template" type="x-tmpl-mustache">
@@ -74,9 +84,134 @@ loading...
 </div>
 </script>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/mustache.min.js"></script>
-<script src="js/q.min.js"></script>
-<script src="js/app.js?1.07"></script>
+<script id="taline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="taline">ta</div>
+  <div class="choice" data-id="taline">chi</div>
+  <div class="choice" data-id="taline">tsu</div>
+  <div class="choice" data-id="taline">te</div>
+  <div class="choice" data-id="taline">to</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="naline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="naline">na</div>
+  <div class="choice" data-id="naline">ni</div>
+  <div class="choice" data-id="naline">nu</div>
+  <div class="choice" data-id="naline">ne</div>
+  <div class="choice" data-id="naline">no</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="haline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="haline">ha</div>
+  <div class="choice" data-id="haline">hi</div>
+  <div class="choice" data-id="haline">fu</div>
+  <div class="choice" data-id="haline">he</div>
+  <div class="choice" data-id="haline">ho</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="maline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="maline">ma</div>
+  <div class="choice" data-id="maline">mi</div>
+  <div class="choice" data-id="maline">mu</div>
+  <div class="choice" data-id="maline">me</div>
+  <div class="choice" data-id="maline">mo</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="yaline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="yaline">ya</div>
+  <div class="choice" data-id="yaline">i</div>
+  <div class="choice" data-id="yaline">yu</div>
+  <div class="choice" data-id="yaline">e</div>
+  <div class="choice" data-id="yaline">yo</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="raline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="raline">ra</div>
+  <div class="choice" data-id="raline">ri</div>
+  <div class="choice" data-id="raline">ru</div>
+  <div class="choice" data-id="raline">re</div>
+  <div class="choice" data-id="raline">ro</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="waline-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="choices clearfix">
+  <div class="choice" data-id="waline">wa</div>
+  <div class="choice" data-id="waline">i</div>
+  <div class="choice" data-id="waline">u</div>
+  <div class="choice" data-id="waline">e</div>
+  <div class="choice" data-id="waline">o</div>
+</div>
+<div class="result" id="result">
+{{ current_count }}/100 &nbsp;<span class="correct">{{correct}}</span> : <span class="fault">{{wrong}}</span> &nbsp;<span class="clock"></span>
+  {{#errors}}
+  <div class="wrong">{{ name }} : {{ sound }}</div>
+  {{/errors}}
+</div>
+</script>
+
+<script id="tingxie-template" type="x-tmpl-mustache">
+<div class="char" id="char">{{ char_name }}</div>
+<div class="tc" id="remains">3</div>
+</script>
+
+<script src="js/jquery.js"></script>
+<script src="js/mustache.js"></script>
+<script src="js/q.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js?v=2.0"></script>
 </body>
 </html>
